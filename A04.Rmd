@@ -1,7 +1,7 @@
 ---
 title: "Assignment 04"
-author: "John W. Hoggard"
-date: "2020-09-10"
+author: "Kaize Yi"
+date: "2020-09-14"
 output:
   html_document: default
   pdf_document: default
@@ -28,3 +28,32 @@ When you have finished your work on this week's assingment, make sure you have:
   *  Make sure you have made your instructor (jhoggard@edinboro.edu) a collaborator on your GitHub repository, so that I can see your work.  You can do this by clicking on the "Settings" icon near the top of the page, and then clicking "Manage Access" in the left bar.
     
 You should also start looking at a basic Exploratory Data Analysis on your data set selected for the first project.  What can you say about the distribution of some of the variables?  What can you say about covariation?
+```{r}
+library(tidyverse)
+library(ggplot2)
+str(iris)
+```
+
+#problem 1
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width))+
+    geom_point()+
+    labs(title = "Sepal width vs Sepal Length")
+```
+in this data set, it shows that the longer the sepal length, the wider the sepal width. 
+
+#problem 2
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width))+
+    geom_point(aes(color = Species))+
+    labs(title = "Sepal width vs Sepal Length in Species")
+```
+in three kind of species, setosa has wider sepal width, but shorter sepal length in general. Versicolor has average sepal length and width. Virginica has longer sepal length but shorter sepal width compare to other two species.
+
+#problem 3
+```{r}
+iris_virginica <- filter(iris, Species == "virginica")
+  ggplot(iris_virginica) + 
+    geom_histogram(aes(x = Sepal.Width), binwidth = .5)
+```
+most of the virginica has sepal width with 3.0
