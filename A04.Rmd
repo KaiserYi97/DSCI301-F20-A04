@@ -34,13 +34,22 @@ library(ggplot2)
 str(iris)
 ```
 
+<span style="color: green; font-size: 14pt">*Comments:*  
+        You need your responses in a separate RMarkdown file.  Also, you have a formatting problem:  You need a space between the `#` and your header.  This is why you are not getting headers.  For example:
+    </span>
+    
+# Heading
+
 #problem 1
 ```{r}
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width))+
     geom_point()+
     labs(title = "Sepal width vs Sepal Length")
 ```
-in this data set, it shows that the longer the sepal length, the wider the sepal width. 
+in this data set, it shows that the longer the sepal length, the wider the sepal width.
+
+<span style="color: green; font-size: 14pt">*Comments:*  This does not show information about the distribution of either sepal length or width; this shows the *covariation* between the two variables.  Some reasonable ideas for investigating the distribution of a single variable would include a histogram or a boxplot.
+    </span>
 
 #problem 2
 ```{r}
@@ -50,6 +59,10 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width))+
 ```
 in three kind of species, setosa has wider sepal width, but shorter sepal length in general. Versicolor has average sepal length and width. Virginica has longer sepal length but shorter sepal width compare to other two species.
 
+<span style="color: green; font-size: 14pt">*Comments:*  
+        Same problem as above.  (You have some significant difficulties interpreting the distribution of these variables since some of these points are overplotted.)
+    </span>
+
 #problem 3
 ```{r}
 iris_virginica <- filter(iris, Species == "virginica")
@@ -57,3 +70,6 @@ iris_virginica <- filter(iris, Species == "virginica")
     geom_histogram(aes(x = Sepal.Width), binwidth = .5)
 ```
 most of the virginica has sepal width with 3.0
+
+<span style="color: green; font-size: 14pt">*Comments:*  Looks like a reasonable graph.          Make sure your final graphs always have appropriate labels (like a title, etc.)
+    </span>
